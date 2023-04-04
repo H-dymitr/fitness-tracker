@@ -3,4 +3,10 @@
     <string name="title_home">Historia aktywności</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="profile">Profil</string>
+    <string name="age">Wiek: </string>
+    <string name="height">Wzrost: </string>
+    <string name="weight">Waga: </string>
+    <string name="bmi">BMI: </string>
+    <string name="profile_avatar">Profile avatar</string>
 </resources>
