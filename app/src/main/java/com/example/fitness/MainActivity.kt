@@ -30,3 +30,7 @@ private lateinit var binding: ActivityMainBinding
         navView.setupWithNavController(navController)
     }
 }
+
+class ActivityMainBinding {
+
+}

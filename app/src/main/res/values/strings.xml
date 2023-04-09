@@ -9,4 +9,9 @@
     <string name="weight">Waga: </string>
     <string name="bmi">BMI: </string>
     <string name="profile_avatar">Profile avatar</string>
+    <string name="record">Record</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="walk">Walk</string>
+    <string name="jogging">Jogging</string>
+    <string name="cycling">Cycling</string>
 </resources>
