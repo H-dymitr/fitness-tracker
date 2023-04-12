@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Fitness</string>
+    <string name="app_name">Fitness Tracker</string>
     <string name="title_home">Historia aktywności</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
@@ -14,4 +14,5 @@
     <string name="walk">Walk</string>
     <string name="jogging">Jogging</string>
     <string name="cycling">Cycling</string>
+    <string name="history_page">Historia aktywności</string>
 </resources>
