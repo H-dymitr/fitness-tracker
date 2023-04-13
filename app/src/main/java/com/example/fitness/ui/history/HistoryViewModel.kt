@@ -1,10 +1,8 @@
-package com.example.fitness.ui.home
+package com.example.fitness.ui.history
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class HomeViewModel : ViewModel() {
+class HistoryViewModel : ViewModel() {
 
 //    private val _text = MutableLiveData<String>().apply {
 //        value = "This is home Fragment"
