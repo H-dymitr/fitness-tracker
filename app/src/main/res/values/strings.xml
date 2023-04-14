@@ -16,5 +16,8 @@
     <string name="cycling">Cycling</string>
     <string name="history_page">Historia aktywności</string>
     <string name="app_logo">App Logo</string>
-    <string name="last_actvt">Ostatnia aktywność:</string>
+    <string name="last_actvt">Ostatnie aktywności:</string>
+    <string name="running">Bieganie</string>
+    <string name="cycling_txt">Jazda na rowerze</string>
+    <string name="swimming_txt">Pływanie</string>
 </resources>

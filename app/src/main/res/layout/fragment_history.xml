@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.history.HistoryFragment">
+
+    <TextView
+        android:id="@+id/history_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:alpha="0"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/history_page"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:transitionName="history_page"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/last_actv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:alpha="0"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/last_actvt"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/history_page" />
+
+    <ScrollView
+        android:layout_width="412dp"
+        android:layout_height="519dp"
+        android:layout_marginTop="0dp"
+        android:fillViewport="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/last_actv">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/rounded_rectangle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="25dp"
+                android:alpha="0"
+                android:contentDescription="@string/dashboard"
+                android:src="@drawable/baseline_rectangle_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/last_actv"
+                app:layout_constraintBottom_toTopOf="@+id/rounded_rectangle2"
+                tools:ignore="ImageContrastCheck,NotSibling" />
+
+            <TextView
+                android:id="@+id/running"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:alpha="0"
+                android:fontFamily="@font/notosans"
+                android:text="@string/running"
+                android:textColor="@color/lighter_blue"
+                android:textSize="25dp"
+                app:layout_constraintStart_toStartOf="@+id/rounded_rectangle"
+                app:layout_constraintTop_toTopOf="@+id/rounded_rectangle" />
+
+            <ImageView
+                android:id="@+id/rounded_rectangle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="25dp"
+                android:alpha="0"
+                android:contentDescription="@string/dashboard"
+                android:src="@drawable/baseline_rectangle_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.555"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rounded_rectangle"
+                tools:ignore="ImageContrastCheck" />
+
+            <TextView
+                android:id="@+id/cycling"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:alpha="0"
+                android:fontFamily="@font/notosans"
+                android:text="@string/cycling_txt"
+                android:textColor="@color/lighter_blue"
+                android:textSize="25dp"
+                app:layout_constraintStart_toStartOf="@+id/rounded_rectangle2"
+                app:layout_constraintTop_toTopOf="@+id/rounded_rectangle2" />
+
+            <ImageView
+                android:id="@+id/rounded_rectangle3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="25dp"
+                android:alpha="0"
+                android:contentDescription="@string/dashboard"
+                android:src="@drawable/baseline_rectangle_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.555"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rounded_rectangle2"
+                tools:ignore="ImageContrastCheck" />
+
+            <TextView
+                android:id="@+id/swimming"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:alpha="0"
+                android:fontFamily="@font/notosans"
+                android:text="@string/swimming_txt"
+                android:textColor="@color/lighter_blue"
+                android:textSize="25dp"
+                app:layout_constraintStart_toStartOf="@+id/rounded_rectangle3"
+                app:layout_constraintTop_toTopOf="@+id/rounded_rectangle3" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/notification_bell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="20dp"
+        android:alpha="0"
+        android:contentDescription="@string/title_notifications"
+        android:src="@drawable/ic_notifications_black_24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
