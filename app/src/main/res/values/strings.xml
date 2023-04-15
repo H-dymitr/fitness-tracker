@@ -20,7 +20,7 @@
     <string name="running">Bieganie</string>
     <string name="cycling_txt">Jazda na rowerze</string>
     <string name="swimming_txt">Pływanie</string>
-    <string name="google_maps_api">AIzaSyDm0cLnu5HDViOyolY8JEW5LisE0-UJAdE</string>
+    <string name="google_maps_api">PRIVATE</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <!-- TODO: Remove or change this placeholder text -->
