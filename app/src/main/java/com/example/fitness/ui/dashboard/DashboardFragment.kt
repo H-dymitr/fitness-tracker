@@ -34,7 +34,7 @@ private var _binding: FragmentDashboardBinding? = null
     return root
   }
 
-override fun onDestroyView() {
+    override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
