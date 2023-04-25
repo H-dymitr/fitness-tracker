@@ -39,7 +39,8 @@
         app:layout_constraintTop_toBottomOf="@+id/history_page" />
 
     <ScrollView
-        android:layout_width="412dp"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="@dimen/nav_bar_height"
         android:layout_height="519dp"
         android:layout_marginTop="0dp"
         android:fillViewport="true"
@@ -138,7 +139,7 @@
                 android:layout_marginTop="16dp"
                 android:alpha="0"
                 android:fontFamily="@font/notosans"
-                android:text="@string/swimming_txt"
+                android:text="@string/walking_txt"
                 android:textColor="@color/lighter_blue"
                 android:textSize="25dp"
                 app:layout_constraintStart_toStartOf="@+id/rounded_rectangle3"
