@@ -16,8 +16,6 @@ class HistoryFragment : Fragment() {
 
     private var _binding: FragmentHistoryBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -30,7 +28,6 @@ class HistoryFragment : Fragment() {
         _binding = FragmentHistoryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        // Tworzymy animację i uruchamiamy ją dla widoku tekstowego
         ObjectAnimator.ofFloat(binding.notificationBell, "translationX", 200f, 0f)
             .apply {
                 duration = 700
@@ -64,48 +61,83 @@ class HistoryFragment : Fragment() {
                     }.start()
             }.start()
 
-        ObjectAnimator.ofFloat(binding.roundedRectangle, "alpha", 0f, 1f)
-            .apply {
-                duration = 700
-                startDelay = 1800
-                ObjectAnimator.ofFloat(binding.running, "alpha", 0f, 1f)
-                    .apply {
-                        duration = 700
-                        startDelay = 1800
-                    }.start()
-            }.start()
+        val roundedRectangles =
+            arrayOf(binding.roundedRectangle, binding.roundedRectangle2, binding.roundedRectangle3)
+        val activities = arrayOf(binding.joggingHistory, binding.cycling, binding.walking)
+        val activityTimes =
+            arrayOf(binding.activityTime, binding.activityTime2, binding.activityTime3)
+        val routeLengths = arrayOf(binding.routeLenght1, binding.routeLenght2, binding.routeLenght3)
+        val activityImages = arrayOf(binding.runner, binding.biker, binding.walker)
 
-        ObjectAnimator.ofFloat(binding.roundedRectangle2, "alpha", 0f, 1f)
-            .apply {
-                duration = 700
-                startDelay = 1900
-                ObjectAnimator.ofFloat(binding.cycling, "alpha", 0f, 1f)
-                    .apply {
-                        duration = 700
-                        startDelay = 1900
-                    }.start()
-            }.start()
-
-        ObjectAnimator.ofFloat(binding.roundedRectangle3, "alpha", 0f, 1f)
-            .apply {
-                duration = 700
-                startDelay = 2000
-                ObjectAnimator.ofFloat(binding.swimming, "alpha", 0f, 1f)
-                    .apply {
-                        duration = 700
-                        startDelay = 2000
-                    }.start()
-            }.start()
-
+        for (i in roundedRectangles.indices) {
+            ObjectAnimator.ofFloat(roundedRectangles[i], "alpha", 0f, 1f)
+                .apply {
+                    duration = 700
+                    startDelay = (1800 + 100 * i).toLong()
+                    ObjectAnimator.ofFloat(activities[i], "alpha", 0f, 1f)
+                        .apply {
+                            duration = 700
+                            startDelay = (1800 + 100 * i).toLong()
+                            ObjectAnimator.ofFloat(activityTimes[i], "translationX", -200f, 0f)
+                                .apply {
+                                    duration = 700
+                                    startDelay = (2100 + 100 * i).toLong()
+                                    ObjectAnimator.ofFloat(activityTimes[i], "alpha", 0f, 1f)
+                                        .apply {
+                                            duration = 700
+                                            startDelay = (2100 + 100 * i).toLong()
+                                        }.start()
+                                }.start()
+                            ObjectAnimator.ofFloat(routeLengths[i], "translationX", -200f, 0f)
+                                .apply {
+                                    duration = 700
+                                    startDelay = (2100 + 100 * i).toLong()
+                                    ObjectAnimator.ofFloat(routeLengths[i], "alpha", 0f, 1f)
+                                        .apply {
+                                            duration = 700
+                                            startDelay = (2100 + 100 * i).toLong()
+                                            ObjectAnimator.ofFloat(
+                                                activityImages[i],
+                                                "scaleX",
+                                                0f,
+                                                1f
+                                            ).apply {
+                                                duration = 700
+                                                startDelay = (2100 + 100 * i).toLong()
+                                                ObjectAnimator.ofFloat(
+                                                    activityImages[i],
+                                                    "scaleY",
+                                                    0f,
+                                                    1f
+                                                ).apply {
+                                                    duration = 700
+                                                    startDelay = (2100 + 100 * i).toLong()
+                                                    ObjectAnimator.ofFloat(
+                                                        activityImages[i],
+                                                        "alpha",
+                                                        0f,
+                                                        1f
+                                                    ).apply {
+                                                        duration = 700
+                                                        startDelay = (2100 + 100 * i).toLong()
+                                                    }.start()
+                                                }.start()
+                                            }.start()
+                                        }.start()
+                                }.start()
+                        }.start()
+                }.start()
+        }
         return root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.findViewById<ImageView>(R.id.notification_bell).setOnClickListener {
-
-        findNavController().navigate(R.id.navigation_notifications)
+            findNavController().navigate(R.id.navigation_notifications)
+        }
     }
-}
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

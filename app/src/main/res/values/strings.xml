@@ -11,24 +11,23 @@
     <string name="profile_avatar">Profile avatar</string>
     <string name="record">Record</string>
     <string name="dashboard">Dashboard</string>
-    <string name="walk">Walk</string>
+    <string name="walk">Spacer</string>
     <string name="jogging">Jogging</string>
     <string name="cycling">Cycling</string>
     <string name="history_page">Historia aktywności</string>
     <string name="app_logo">App Logo</string>
+    <string name="activity_time">Czas aktywności:</string>
     <string name="last_actvt">Ostatnie aktywności:</string>
-    <string name="running">Bieganie</string>
     <string name="cycling_txt">Jazda na rowerze</string>
-    <string name="walking_txt">Chodzenie</string>
+    <string name="walking_txt">Spacerowanie</string>
     <string name="google_maps_api">PRIVATE</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="stop_recording_button">stop</string>
     <string name="map_view">map view</string>
     <string name="distance">Distance</string>
     <string name="current_speed">Current Speed</string>
-    <string name="activity_time">Activity Time</string>
     <string name="google_maps_object">Google Maps object</string>
+    <string name="route_lenght">Długość trasy:</string>
 </resources>
