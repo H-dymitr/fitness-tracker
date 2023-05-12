@@ -14,10 +14,16 @@ class SplashScreen : AppCompatActivity() {
 
         introLogo.alpha = 0f
         introLogo.animate().setDuration(1500).alpha(1f).withEndAction{
-            val i = Intent(this,MainActivity::class.java)
+            val nextActivity = if (this.isUserLoggedIn()) MainActivity::class.java else RegistrationActivity::class.java
+            val i = Intent(this, nextActivity)
             startActivity(i)
             overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out)
             finish()
         }
+    }
+
+    private fun isUserLoggedIn(): Boolean {
+        // TODO: Check if user is logged in
+        return true;
     }
 }

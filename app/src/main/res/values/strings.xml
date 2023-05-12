@@ -30,4 +30,10 @@
     <string name="current_speed">Current Speed</string>
     <string name="google_maps_object">Google Maps object</string>
     <string name="route_lenght">Długość trasy:</string>
+    <string name="save_btn_text">Zapisz</string>
+    <string name="registration_subheader">Wprowadź swoje dane</string>
+    <string name="registration_header">Witaj w aplikacji Fitness</string>
+    <string name="logo">Logo</string>
+    <string name="registration_name">Imię</string>
+    <string name="registration_lastname">Nazwisko</string>
 </resources>
