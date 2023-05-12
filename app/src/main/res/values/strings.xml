@@ -4,9 +4,9 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="profile">Profil</string>
-    <string name="age">Wiek: </string>
-    <string name="height">Wzrost: </string>
-    <string name="weight">Waga: </string>
+    <string name="age">Wiek </string>
+    <string name="height">Wzrost </string>
+    <string name="weight">Waga </string>
     <string name="bmi">BMI: </string>
     <string name="profile_avatar">Profile avatar</string>
     <string name="record">Record</string>
@@ -36,4 +36,6 @@
     <string name="logo">Logo</string>
     <string name="registration_name">Imię</string>
     <string name="registration_lastname">Nazwisko</string>
+    <string name="profile_header">Profil użytkownika</string>
+    <string name="private_policy">Jesteśmy zaangażowani w ochronę Twojej prywatności. Wszystkie dane, gromadzone przez naszą aplikację mobilną, są przechowywane lokalnie na Twoim urządzeniu i nie są udostępniane żadnym zewnętrznym podmiotom. Dbamy o bezpieczeństwo Twoich informacji i stosujemy zaawansowane środki techniczne, aby zapobiec nieautoryzowanemu dostępowi do danych. Twoje dane są poufne i używane jedynie w celu zapewnienia Ci jak najlepszej obsługi i spersonalizowanego doświadczenia z naszą aplikacją. Zachowujemy pełną zgodność z obowiązującymi przepisami dotyczącymi prywatności i ochrony danych.</string>
 </resources>

@@ -1,11 +1,14 @@
 package com.example.fitness.utils
 
 import java.math.BigDecimal
+import kotlin.math.pow
 
 class BMICalcUtil {
     fun calculateBMIMetric(heightCm: Double, weightKg: Double): Double {
+        val heightInMeters = heightCm / 100 // Convert height from centimeters to meters
+        val bmi = weightKg / (heightInMeters * heightInMeters)
         // round to 2 decimal
-        return (weightKg / ((heightCm / CENTIMETERS_IN_METER) * (heightCm / CENTIMETERS_IN_METER))).toBigDecimal().setScale(2, BigDecimal.ROUND_HALF_UP).toDouble()
+        return BigDecimal(bmi).setScale(2, BigDecimal.ROUND_HALF_UP).toDouble()
     }
 
     fun classifyBMI(bmi: Double): String {

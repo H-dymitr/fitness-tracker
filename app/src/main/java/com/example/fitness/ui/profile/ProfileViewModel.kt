@@ -21,7 +21,7 @@ class ProfileViewModel : ViewModel() {
     val BMI: LiveData<String> = _BMI
 
     init {
-        // TODO: Load data from the database
+        // get data from shared preferences
         _name.value = "Jan Kowalski"
         _age.value = 20
         _height.value = 180
