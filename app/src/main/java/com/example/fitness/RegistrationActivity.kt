@@ -1,6 +1,7 @@
 package com.example.fitness
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -31,7 +32,15 @@ class RegistrationActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // TODO: Perform registration logic
+            // Save user data to shared preferences
+            val sharedPref: SharedPreferences = getSharedPreferences("user_data", MODE_PRIVATE)
+            val editor = sharedPref.edit()
+            editor.putString("name", etName.text.toString())
+            editor.putString("lastname", etLastname.text.toString())
+            editor.putInt("age", etAge.text.toString().toInt())
+            editor.putInt("weight", etWeight.text.toString().toInt())
+            editor.putInt("height", etHeight.text.toString().toInt())
+            editor.apply()
 
             // Once registration is successful, navigate to the next activity
             val intent = Intent(this, MainActivity::class.java)

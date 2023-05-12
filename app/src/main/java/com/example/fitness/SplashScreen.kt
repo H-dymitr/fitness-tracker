@@ -23,7 +23,9 @@ class SplashScreen : AppCompatActivity() {
     }
 
     private fun isUserLoggedIn(): Boolean {
-        // TODO: Check if user is logged in
-        return true;
+        // check SharedPreferences for user data
+        val sharedPref = getSharedPreferences("user_data", MODE_PRIVATE)
+        val name = sharedPref.getString("name", null)
+        return name != null
     }
 }
