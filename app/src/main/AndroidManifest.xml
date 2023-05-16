@@ -44,6 +44,11 @@
             android:name=".RegistrationActivity"
             android:exported="true"
             />
+        <activity
+            android:name=".recording"
+            android:exported="true"
+            />
+
     </application>
 
 </manifest>
