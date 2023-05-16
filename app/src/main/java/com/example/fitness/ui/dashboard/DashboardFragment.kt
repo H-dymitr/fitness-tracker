@@ -1,20 +1,19 @@
 package com.example.fitness.ui.dashboard
 
 import android.animation.ObjectAnimator
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
+import com.example.fitness.MainActivity
 import com.example.fitness.R
+import com.example.fitness.Recording
 import com.example.fitness.databinding.FragmentDashboardBinding
-import com.example.fitness.databinding.FragmentHistoryBinding
-import com.example.fitness.ui.history.HistoryViewModel
 
 class DashboardFragment : Fragment() {
 
@@ -79,8 +78,6 @@ override fun onCreateView(
   val roundedRectangles =
     arrayOf(binding.rectangle1, binding.rectangle2, binding.rectangle3)
   val activities = arrayOf(binding.jogging, binding.cyclingDashboard, binding.walk)
-//  val activityTimes =
-//    arrayOf(binding.activityTime, binding.activityTime2, binding.activityTime3)
   val routeLengths = arrayOf(binding.tapToStart, binding.tapToStart2, binding.tapToStart3)
   val activityImages = arrayOf(binding.joggingImg, binding.cyclingImg, binding.walkImg)
 
@@ -138,8 +135,14 @@ override fun onCreateView(
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
+
+    view.findViewById<ImageView>(R.id.rectangle1).setOnClickListener {
+      val intent = Intent(activity, Recording::class.java)
+      startActivity(intent)
+    }
     view.findViewById<LinearLayout>(R.id.back).setOnClickListener {
-      findNavController().navigate(R.id.navigation_history)
+      val intent = Intent(activity, MainActivity::class.java)
+      startActivity(intent)
     }
   }
 

@@ -28,4 +28,9 @@
         android:name="com.example.fitness.ui.profile.ProfileFragment"
         android:label="@string/profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/recording"
+        android:name="com.example.fitness.Recording"
+        android:label="fragment_recording2"
+        tools:layout="@layout/fragment_recording2" />
 </navigation>
