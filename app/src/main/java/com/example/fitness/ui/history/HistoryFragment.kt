@@ -12,7 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.fitness.R
 import com.example.fitness.databinding.FragmentHistoryBinding
 
-class HistoryFragment : androidx.fragment.app.Fragment() {
+class HistoryFragment : Fragment() {
 
     private var _binding: FragmentHistoryBinding? = null
 

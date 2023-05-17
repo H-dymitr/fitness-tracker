@@ -10,9 +10,9 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.fitness.MainActivity
 import com.example.fitness.R
-import com.example.fitness.Recording
 import com.example.fitness.databinding.FragmentDashboardBinding
 
 class DashboardFragment : Fragment() {
@@ -31,16 +31,6 @@ override fun onCreateView(
   _binding = FragmentDashboardBinding.inflate(inflater, container, false)
   val root: View = binding.root
 
-  ObjectAnimator.ofFloat(binding.backImg, "translationX", 200f, 0f)
-    .apply {
-      duration = 700
-      startDelay = 700
-      ObjectAnimator.ofFloat(binding.backImg, "alpha", 0f, 1f)
-        .apply {
-          duration = 700
-          startDelay = 700
-        }.start()
-    }.start()
 
   ObjectAnimator.ofFloat(binding.historyActivity, "translationX", 200f, 0f)
     .apply {
@@ -137,9 +127,9 @@ override fun onCreateView(
     super.onViewCreated(view, savedInstanceState)
 
     view.findViewById<ImageView>(R.id.rectangle1).setOnClickListener {
-      val intent = Intent(activity, Recording::class.java)
-      startActivity(intent)
+      findNavController().navigate(R.id.recording)
     }
+
     view.findViewById<LinearLayout>(R.id.back).setOnClickListener {
       val intent = Intent(activity, MainActivity::class.java)
       startActivity(intent)
