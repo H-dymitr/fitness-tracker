@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.fitness.MainActivity
 import com.example.fitness.R
-import com.example.fitness.Recording
+import com.example.fitness.RecordingActivity
 import com.example.fitness.databinding.FragmentDashboardBinding
 
 class DashboardFragment : Fragment() {
@@ -137,7 +137,15 @@ override fun onCreateView(
     super.onViewCreated(view, savedInstanceState)
 
     view.findViewById<ImageView>(R.id.rectangle1).setOnClickListener {
-      val intent = Intent(activity, Recording::class.java)
+      val intent = Intent(activity, RecordingActivity::class.java)
+      startActivity(intent)
+    }
+    view.findViewById<ImageView>(R.id.rectangle2).setOnClickListener {
+      val intent = Intent(activity, RecordingActivity::class.java)
+      startActivity(intent)
+    }
+    view.findViewById<ImageView>(R.id.rectangle3).setOnClickListener {
+      val intent = Intent(activity, RecordingActivity::class.java)
       startActivity(intent)
     }
     view.findViewById<LinearLayout>(R.id.back).setOnClickListener {

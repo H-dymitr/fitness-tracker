@@ -43,8 +43,8 @@
             android:name=".RegistrationActivity"
             android:exported="true" />
         <activity
-            android:name=".Recording"
-            android:exported="true" />
+            android:name=".RecordingActivity"
+            />
     </application>
 
 </manifest>
