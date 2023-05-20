@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.dashboard.DashboardFragment"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    >
+    tools:context=".ui.dashboard.DashboardFragment">
 
     <LinearLayout
         android:id="@+id/back"
         android:layout_width="match_parent"
-        android:layout_height="70sp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints,UseCompoundDrawables">
 
         <ImageView
             android:id="@+id/backImg"
@@ -31,21 +29,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:alpha="0"
-            android:text="@string/historiia_aktywno_ci"
+            android:text="@string/startTraining"
             android:textColor="#030303"
-            android:textSize="20sp"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/houseImg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="30dp"
             android:alpha="0"
-            android:src="@drawable/ic_home_black_24dp" />
+            android:src="@drawable/ic_home_black_24dp"
+            tools:ignore="ContentDescription" />
     </LinearLayout>
 
     <TextView
@@ -54,10 +53,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:alpha="0"
-        android:text="@string/wybie_aktywno"
+        android:textSize="20sp"
+        android:text="@string/wybierz_aktywnosc"
         android:textColor="#090808"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintHorizontal_bias="0.07"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/back" />
 
@@ -87,7 +87,8 @@
                 android:src="@drawable/baseline_rectangle_24"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
 
             <ImageView
                 android:id="@+id/joggingImg"
@@ -99,7 +100,8 @@
                 app:layout_constraintBottom_toBottomOf="@+id/rectangle1"
                 app:layout_constraintEnd_toEndOf="@+id/rectangle1"
                 app:layout_constraintTop_toTopOf="@+id/rectangle1"
-                app:layout_constraintVertical_bias="0.36" />
+                app:layout_constraintVertical_bias="0.36"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/jogging"
@@ -112,7 +114,7 @@
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/rectangle1"
                 app:layout_constraintEnd_toEndOf="@+id/rectangle1"
-                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintHorizontal_bias="0.25"
                 app:layout_constraintStart_toStartOf="@+id/rectangle1"
                 app:layout_constraintTop_toTopOf="@+id/rectangle1" />
 
@@ -139,7 +141,8 @@
                 android:src="@drawable/baseline_rectangle_24"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rectangle1" />
+                app:layout_constraintTop_toBottomOf="@+id/rectangle1"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/cyclingDashboard"
@@ -147,12 +150,12 @@
                 android:layout_height="wrap_content"
                 android:alpha="0"
                 android:fontFamily="@font/notosans"
-                android:text="Jazda na rowerze"
+                android:text="@string/jazda_na_rowerze"
                 android:textColor="#F8F7F7"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/rectangle2"
                 app:layout_constraintEnd_toEndOf="@+id/rectangle2"
-                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintHorizontal_bias="0.25"
                 app:layout_constraintStart_toStartOf="@+id/rectangle2"
                 app:layout_constraintTop_toTopOf="@+id/rectangle2" />
 
@@ -180,7 +183,8 @@
                 app:layout_constraintBottom_toBottomOf="@+id/rectangle2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/rectangle2"
-                app:layout_constraintVertical_bias="0.365" />
+                app:layout_constraintVertical_bias="0.365"
+                tools:ignore="ContentDescription" />
 
             <ImageView
                 android:id="@+id/rectangle3"
@@ -191,7 +195,8 @@
                 android:src="@drawable/baseline_rectangle_24"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rectangle2" />
+                app:layout_constraintTop_toBottomOf="@+id/rectangle2"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/walk"
@@ -199,12 +204,12 @@
                 android:layout_height="wrap_content"
                 android:alpha="0"
                 android:fontFamily="@font/notosans"
-                android:text="Spacer"
+                android:text="@string/spacer"
                 android:textColor="#F7F3F3"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/rectangle3"
                 app:layout_constraintEnd_toEndOf="@+id/rectangle3"
-                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintHorizontal_bias="0.25"
                 app:layout_constraintStart_toStartOf="@+id/rectangle3"
                 app:layout_constraintTop_toTopOf="@+id/rectangle3" />
 
@@ -232,7 +237,8 @@
                 app:layout_constraintBottom_toBottomOf="@+id/rectangle3"
                 app:layout_constraintEnd_toEndOf="@+id/rectangle3"
                 app:layout_constraintTop_toTopOf="@+id/rectangle3"
-                app:layout_constraintVertical_bias="0.36" />
+                app:layout_constraintVertical_bias="0.36"
+                tools:ignore="ContentDescription" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

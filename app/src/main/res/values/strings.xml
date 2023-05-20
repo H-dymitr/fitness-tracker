@@ -40,6 +40,9 @@
     <string name="private_policy">Jesteśmy zaangażowani w ochronę Twojej prywatności. Wszystkie dane, gromadzone przez naszą aplikację mobilną, są przechowywane lokalnie na Twoim urządzeniu i nie są udostępniane żadnym zewnętrznym podmiotom. Dbamy o bezpieczeństwo Twoich informacji i stosujemy zaawansowane środki techniczne, aby zapobiec nieautoryzowanemu dostępowi do danych. Twoje dane są poufne i używane jedynie w celu zapewnienia Ci jak najlepszej obsługi i spersonalizowanego doświadczenia z naszą aplikacją. Zachowujemy pełną zgodność z obowiązującymi przepisami dotyczącymi prywatności i ochrony danych.</string>
     <string name="bieganie">Bieganie</string>
     <string name="wci_nij_by_rozpocz_aktywno">Wciśnij by rozpocząć aktywność</string>
-    <string name="wybie_aktywno">Wybież Aktywność:</string>
+    <string name="wybierz_aktywnosc">Wybierz Aktywność:</string>
     <string name="historiia_aktywno_ci">Historiia Aktywności</string>
+    <string name="jazda_na_rowerze">Jazda na rowerze</string>
+    <string name="spacer">Spacer</string>
+    <string name="startTraining">Rozpocznij trening</string>
 </resources>
