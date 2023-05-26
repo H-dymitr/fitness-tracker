@@ -1,14 +1,18 @@
 package com.example.fitness.ui.profile
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.example.fitness.MainActivity
 import com.example.fitness.R
+import com.example.fitness.RegistrationActivity
 import com.example.fitness.utils.BMICalcUtil
 
 
@@ -19,6 +23,7 @@ class ProfileFragment : Fragment() {
     private lateinit var tvWeight: TextView
     private lateinit var tvHeight: TextView
     private lateinit var tvBMI: TextView
+    private lateinit var btnEdit: Button
 
     private lateinit var sharedPreferences: SharedPreferences
 
@@ -28,7 +33,6 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext())
         val preferences = this.requireActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE)
         val BMIUtil = BMICalcUtil.instance
 
@@ -56,6 +60,10 @@ class ProfileFragment : Fragment() {
         // TODO: lint refactor
         tvBMI.text = "${BMIUtil.classifyBMI(bmi)} ( $bmi )"
 
-        // TODO: edit profile
+        btnEdit = view.findViewById(R.id.btnEdit)
+        btnEdit.setOnClickListener {
+            val intent = Intent(this.requireActivity(), RegistrationActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

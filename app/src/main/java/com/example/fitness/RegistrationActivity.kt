@@ -1,10 +1,12 @@
 package com.example.fitness
 
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class RegistrationActivity : AppCompatActivity() {
@@ -13,6 +15,7 @@ class RegistrationActivity : AppCompatActivity() {
     private lateinit var etAge: EditText
     private lateinit var etWeight: EditText
     private lateinit var etHeight: EditText
+    private lateinit var tvHeader: TextView
     private lateinit var btnRegister: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +29,33 @@ class RegistrationActivity : AppCompatActivity() {
         etWeight = findViewById(R.id.etWeight)
         etHeight = findViewById(R.id.etHeight)
         btnRegister = findViewById(R.id.btnSave)
+
+        val preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE)
+        val isUserRegistered = preferences.contains("name")
+
+        if (isUserRegistered) {
+            tvHeader = findViewById(R.id.tvHeader)
+            tvHeader.text = getString(R.string.edit_profile)
+            val name = preferences.getString("name", "")
+            val lastname = preferences.getString("lastname", "")
+            val age = preferences.getInt("age", 0);
+            val weight = preferences.getInt("weight", 0)
+            val height = preferences.getInt("height", 0)
+
+
+            etName.setText(name)
+            etLastname.setText(lastname)
+            if (age != 0) {
+                etAge.setText(age.toString())
+            }
+            if (weight != 0) {
+                etWeight.setText(weight.toString())
+            }
+            if (height != 0) {
+                etHeight.setText(height.toString())
+            }
+        }
+
 
         btnRegister.setOnClickListener {
             // Validate input (e.g., check for empty fields)
@@ -43,10 +73,15 @@ class RegistrationActivity : AppCompatActivity() {
             editor.putInt("height", etHeight.text.toString().toInt())
             editor.apply()
 
-            // Once registration is successful, navigate to the next activity
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
+            if (isUserRegistered) {
+                // If user is already registered, return to the profile fragment
+                finish()
+            } else {
+                // Once registration is successful, navigate to the next activity
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
         }
     }
     // isLoggedin = false
