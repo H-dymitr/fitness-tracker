@@ -134,7 +134,7 @@ class HistoryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.findViewById<ImageView>(R.id.notification_bell).setOnClickListener {
-            findNavController().navigate(R.id.navigation_notifications)
+            findNavController().navigate(R.id.navigation_activitydetial)
         }
     }
 

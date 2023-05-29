@@ -1,6 +1,6 @@
 package com.example.fitness
 
-import RecordingFragment
+import com.example.fitness.ui.recording.RecordingFragment
 import android.Manifest
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

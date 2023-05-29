@@ -46,4 +46,5 @@
     <string name="spacer">Spacer</string>
     <string name="startTraining">Rozpocznij trening</string>
     <string name="edit_profile">Edytuj profil</string>
+    <string name="todo">TODO</string>
 </resources>

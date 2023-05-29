@@ -18,19 +18,20 @@
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.fitness.ui.notifications.NotificationsFragment"
+        android:id="@+id/navigation_activitydetial"
+        android:name="com.example.fitness.ui.activityDetails.ActivityDetailFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_activitydetail" />
 
     <fragment
         android:id="@+id/profile"
         android:name="com.example.fitness.ui.profile.ProfileFragment"
         android:label="@string/profile"
         tools:layout="@layout/fragment_profile" />
+
     <fragment
         android:id="@+id/recording"
-        android:name="com.example.fitness.Recording"
+        android:name="com.example.fitness.ui.recording.RecordingFragment"
         android:label="fragment_recording2"
         tools:layout="@layout/fragment_recording" />
 </navigation>

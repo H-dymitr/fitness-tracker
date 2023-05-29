@@ -1,3 +1,5 @@
+package com.example.fitness.ui.recording
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
