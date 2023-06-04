@@ -30,6 +30,13 @@ class RecordingFragment : Fragment() {
         return inflater.inflate(R.layout.recording_activity, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+
+    }
+
     companion object {
         @JvmStatic
         fun newInstance(param1: String, param2: String): RecordingFragment {
