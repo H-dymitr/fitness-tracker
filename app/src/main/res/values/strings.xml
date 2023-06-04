@@ -47,4 +47,5 @@
     <string name="startTraining">Rozpocznij trening</string>
     <string name="edit_profile">Edytuj profil</string>
     <string name="todo">TODO</string>
+    <string name="distance_value">%d meters</string>
 </resources>

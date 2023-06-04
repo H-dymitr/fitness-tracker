@@ -12,8 +12,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.fitness.MainActivity
 import com.example.fitness.R
-import com.example.fitness.RecordingActivity
 import com.example.fitness.databinding.FragmentDashboardBinding
+import com.example.fitness.RecordingActivity
 
 class DashboardFragment : Fragment() {
 

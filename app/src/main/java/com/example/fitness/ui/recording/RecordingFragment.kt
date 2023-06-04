@@ -27,7 +27,7 @@ class RecordingFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_recording, container, false)
+        return inflater.inflate(R.layout.recording_activity, container, false)
     }
 
     companion object {

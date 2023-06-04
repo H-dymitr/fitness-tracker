@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="speed" type="id" />
+    <item name="timer" type="id" />
+    <item name="distance_val" type="id" />
+    <item name="speed_val" type="id" />
+    <item name="mapView" type="id" />
+    <item name="stop_recording" type="id" />
+    <item name="Distance" type="id" />
+</resources>
