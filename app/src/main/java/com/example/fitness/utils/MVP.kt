@@ -1,7 +1,8 @@
-package com.example.fitness
+package com.example.fitness.utils
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
+import com.example.fitness.R
 import com.google.android.gms.maps.model.LatLng
 
 class MapPresenter(private val activity: AppCompatActivity) {

@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.example.fitness.databinding.RecordingActivityBinding
+import com.example.fitness.utils.MapPresenter
+import com.example.fitness.utils.Ui
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
@@ -35,6 +37,7 @@ class RecordingActivity : AppCompatActivity(), OnMapReadyCallback {
         fragmentTransaction.commit()
 
         val mapView = findViewById<MapView>(R.id.mapView)
+        mapView.onCreate(savedInstanceState)
         mapView.getMapAsync(this)
 
         binding.stopRecording.setOnClickListener {//stopRecording - przycisk :P
@@ -47,7 +50,7 @@ class RecordingActivity : AppCompatActivity(), OnMapReadyCallback {
             }
         }
 
-
+        presenter.onViewCreated()
     }
     override fun onMapReady(googleMap: GoogleMap) {
 
@@ -56,7 +59,8 @@ class RecordingActivity : AppCompatActivity(), OnMapReadyCallback {
             updateUi(ui)
         }
 
-        googleMap.uiSettings.isZoomControlsEnabled = true
+        presenter.onMapLoaded()
+        map.uiSettings.isZoomControlsEnabled = true
     }
 
     private fun startTracking() {

@@ -1,4 +1,4 @@
-package com.example.fitness
+package com.example.fitness.utils
 
 import android.annotation.SuppressLint
 import android.os.Looper
