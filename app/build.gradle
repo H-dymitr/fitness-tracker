@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    id 'androidx.navigation.safeargs.kotlin'
+//    apply plugin: 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -38,9 +40,18 @@ android {
         viewBinding true
         dataBinding true
     }
+    sourceSets {
+        main {
+            kotlin {
+                srcDirs += 'build/generated/source/navigation-args/'
+            }
+        }
+    }
 }
-
 dependencies {
+
+    implementation "androidx.navigation:navigation-fragment-ktx:2.6.0"
+    implementation "androidx.navigation:navigation-ui-ktx:2.6.0"
 
     implementation 'com.android.databinding:viewbinding:8.0.2'
     implementation 'javax.inject:javax.inject:1'
@@ -50,8 +61,6 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.6.0'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.6.0'
     implementation 'androidx.room:room-common:2.5.1'
     implementation 'androidx.room:room-ktx:2.5.1'
     testImplementation 'junit:junit:4.13.2'
@@ -61,5 +70,6 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:17.1.0'
     implementation 'com.google.maps.android:android-maps-utils:2.2.3'
     implementation 'com.google.maps.android:maps-utils-ktx:3.2.0'
+
 
 }

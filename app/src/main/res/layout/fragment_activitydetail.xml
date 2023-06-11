@@ -33,14 +33,14 @@
         tools:ignore="ImageContrastCheck" />
 
     <TextView
-        android:id="@+id/jogging_history"
+        android:id="@+id/activityNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="150dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="150dp"
         android:fontFamily="@font/poppins_medium"
-        android:text="@string/jogging"
+        android:text=""
         android:textColor="@color/lighter_blue"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/detailRectangle"
@@ -60,7 +60,7 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/detailRectangle"
         app:layout_constraintStart_toStartOf="@+id/detailRectangle"
-        app:layout_constraintTop_toBottomOf="@+id/jogging_history" />
+        app:layout_constraintTop_toBottomOf="@+id/activityNameTextView" />
 
     <TextView
         android:id="@+id/route_lenght_details"

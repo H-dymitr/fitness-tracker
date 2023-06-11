@@ -82,6 +82,7 @@ class RecordingActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun updateUi(ui: Ui) {
         if (ui.currentLocation != null && ui.currentLocation != map.cameraPosition.target) {
             map.isMyLocationEnabled = true
+            map.uiSettings.isZoomControlsEnabled = true
             map.animateCamera(CameraUpdateFactory.newLatLngZoom(ui.currentLocation, 14f))
         }
         binding.distanceVal.text = ui.formattedDistance

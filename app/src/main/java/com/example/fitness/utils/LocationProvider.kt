@@ -44,9 +44,11 @@ class LocationProvider(private val activity: AppCompatActivity) {
 
     fun getUserLocation() {
         client.lastLocation.addOnSuccessListener { location ->
-            val latLng = LatLng(location.latitude, location.longitude)
-            locations.add(latLng)
-            liveLocation.value = latLng
+            location?.let {
+                val latLng = LatLng(it.latitude, it.longitude)
+                locations.add(latLng)
+                liveLocation.value = latLng
+            }
         }
     }
 

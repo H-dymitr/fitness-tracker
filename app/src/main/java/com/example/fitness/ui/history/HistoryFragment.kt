@@ -2,6 +2,7 @@ package com.example.fitness.ui.history
 
 import android.animation.ObjectAnimator
 import android.os.Bundle
+import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -120,17 +121,28 @@ class HistoryFragment : Fragment() {
         return root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val inflater = TransitionInflater.from(requireContext())
+        exitTransition = inflater.inflateTransition(R.transition.fade)
+
         super.onViewCreated(view, savedInstanceState)
         view.findViewById<ImageView>(R.id.rounded_rectangle).setOnClickListener {
-            findNavController().navigate(R.id.navigation_activitydetial)
+            navigateToActivityDetail("Jogging")
         }
         view.findViewById<ImageView>(R.id.rounded_rectangle2).setOnClickListener {
-            findNavController().navigate(R.id.navigation_activitydetial)
+            navigateToActivityDetail("Cycling")
         }
         view.findViewById<ImageView>(R.id.rounded_rectangle3).setOnClickListener {
-            findNavController().navigate(R.id.navigation_activitydetial)
+            navigateToActivityDetail("Walking")
         }
+    }
+
+    private fun navigateToActivityDetail(activityName: String) {
+        val bundle = Bundle().apply {
+            putString("activityName", activityName)
+        }
+        findNavController().navigate(R.id.navigation_activitydetial, bundle)
     }
 
     override fun onDestroyView() {
