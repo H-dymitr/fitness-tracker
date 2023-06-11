@@ -9,10 +9,11 @@
 
     <ImageView
         android:id="@+id/testMap"
-        android:layout_width="346dp"
-        android:layout_height="354dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:contentDescription="@string/todo"
         android:src="@android:drawable/ic_menu_mapmode"
+        app:layout_constraintBottom_toTopOf="@+id/detailRectangle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,11 +23,12 @@
         android:id="@+id/detailRectangle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="56dp"
         android:contentDescription="@string/todo"
         android:src="@drawable/baseline_rectangle_25"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="ImageContrastCheck" />
 
@@ -35,9 +37,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="150dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="150dp"
-        android:fontFamily="@font/notosans"
+        android:fontFamily="@font/poppins_medium"
         android:text="@string/jogging"
         android:textColor="@color/lighter_blue"
         android:textSize="24sp"
@@ -45,5 +47,51 @@
         app:layout_constraintStart_toStartOf="@+id/detailRectangle"
         app:layout_constraintTop_toTopOf="@+id/detailRectangle" />
 
+    <TextView
+        android:id="@+id/activity_time_detials"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="160dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/activity_time"
+        android:textColor="@color/lighter_blue"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/detailRectangle"
+        app:layout_constraintStart_toStartOf="@+id/detailRectangle"
+        app:layout_constraintTop_toBottomOf="@+id/jogging_history" />
+
+    <TextView
+        android:id="@+id/route_lenght_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="160dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/route_lenght"
+        android:textColor="@color/lighter_blue"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/detailRectangle"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="@+id/detailRectangle"
+        app:layout_constraintTop_toBottomOf="@+id/activity_time_detials" />
+
+    <TextView
+        android:id="@+id/speed_val"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="160dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/avg_speed"
+        android:textColor="@color/lighter_blue"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/detailRectangle"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/detailRectangle"
+        app:layout_constraintTop_toBottomOf="@+id/route_lenght_details" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

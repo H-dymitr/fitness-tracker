@@ -1,7 +1,6 @@
 package com.example.fitness
 
 import android.annotation.SuppressLint
-import com.example.fitness.ui.recording.RecordingFragment
 import android.os.Bundle
 import android.os.SystemClock
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.example.fitness.databinding.RecordingActivityBinding
+import com.example.fitness.ui.recording.RecordingFragment
 import com.example.fitness.utils.MapPresenter
 import com.example.fitness.utils.Ui
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -18,12 +18,12 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.PolylineOptions
 
-
 class RecordingActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var binding: RecordingActivityBinding
-    private val presenter = MapPresenter(this)
+    private lateinit var mapView: MapView
     private lateinit var map: GoogleMap
+    private val presenter: MapPresenter by lazy { MapPresenter(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,11 +36,11 @@ class RecordingActivity : AppCompatActivity(), OnMapReadyCallback {
         fragmentTransaction.replace(R.id.container, fragment)
         fragmentTransaction.commit()
 
-        val mapView = findViewById<MapView>(R.id.mapView)
+        mapView = binding.mapView
         mapView.onCreate(savedInstanceState)
         mapView.getMapAsync(this)
 
-        binding.stopRecording.setOnClickListener {//stopRecording - przycisk :P
+        binding.stopRecording.setOnClickListener {
             if (binding.stopRecording.text == getString(R.string.start_label)) {
                 startTracking()
                 binding.stopRecording.setText(R.string.stop_label)
@@ -52,8 +52,8 @@ class RecordingActivity : AppCompatActivity(), OnMapReadyCallback {
 
         presenter.onViewCreated()
     }
-    override fun onMapReady(googleMap: GoogleMap) {
 
+    override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
         presenter.ui.observe(this) { ui ->
             updateUi(ui)
@@ -100,4 +100,38 @@ class RecordingActivity : AppCompatActivity(), OnMapReadyCallback {
         map.addPolyline(polylineOptions)
     }
 
+    override fun onResume() {
+        super.onResume()
+        mapView.onResume()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        mapView.onStart()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        mapView.onStop()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        mapView.onPause()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mapView.onDestroy()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        mapView.onSaveInstanceState(outState)
+    }
+
+    override fun onLowMemory() {
+        super.onLowMemory()
+        mapView.onLowMemory()
+    }
 }

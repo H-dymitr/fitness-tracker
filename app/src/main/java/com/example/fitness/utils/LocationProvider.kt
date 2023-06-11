@@ -50,6 +50,7 @@ class LocationProvider(private val activity: AppCompatActivity) {
         }
     }
 
+    @SuppressLint("VisibleForTests")
     fun trackUser() {
         val locationRequest = LocationRequest.create()
         locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY

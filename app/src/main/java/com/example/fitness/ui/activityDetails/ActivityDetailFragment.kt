@@ -10,9 +10,9 @@ import com.example.fitness.databinding.FragmentActivitydetailBinding
 
 class ActivityDetailFragment : Fragment() {
 
-private var _binding: FragmentActivitydetailBinding? = null
+    private var _binding: FragmentActivitydetailBinding? = null
 
-  private val binding get() = _binding!!
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,7 +27,10 @@ private var _binding: FragmentActivitydetailBinding? = null
         return binding.root
     }
 
-override fun onDestroyView() {
+
+
+
+    override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }

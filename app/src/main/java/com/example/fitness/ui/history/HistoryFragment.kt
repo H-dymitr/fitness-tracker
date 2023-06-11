@@ -28,17 +28,6 @@ class HistoryFragment : Fragment() {
         _binding = FragmentHistoryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        ObjectAnimator.ofFloat(binding.notificationBell, "translationX", 200f, 0f)
-            .apply {
-                duration = 700
-                startDelay = 700
-                ObjectAnimator.ofFloat(binding.notificationBell, "alpha", 0f, 1f)
-                    .apply {
-                        duration = 700
-                        startDelay = 700
-                    }.start()
-            }.start()
-
         ObjectAnimator.ofFloat(binding.historyPage, "translationY", -100f, 0f)
             .apply {
                 duration = 700
@@ -133,7 +122,13 @@ class HistoryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.findViewById<ImageView>(R.id.notification_bell).setOnClickListener {
+        view.findViewById<ImageView>(R.id.rounded_rectangle).setOnClickListener {
+            findNavController().navigate(R.id.navigation_activitydetial)
+        }
+        view.findViewById<ImageView>(R.id.rounded_rectangle2).setOnClickListener {
+            findNavController().navigate(R.id.navigation_activitydetial)
+        }
+        view.findViewById<ImageView>(R.id.rounded_rectangle3).setOnClickListener {
             findNavController().navigate(R.id.navigation_activitydetial)
         }
     }

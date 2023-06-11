@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModel
 
 class ActivityDetailViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is notifications Fragment"
+    private val _activity = MutableLiveData<String>().apply {
+        value = "Activity Name"
     }
-    val text: LiveData<String> = _text
+    val activity: LiveData<String> = _activity
 }
