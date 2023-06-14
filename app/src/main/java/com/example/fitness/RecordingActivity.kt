@@ -7,6 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import androidx.room.Room
+import com.example.fitness.data.ActivityDAO
+import com.example.fitness.data.Database
 import com.example.fitness.databinding.RecordingActivityBinding
 import com.example.fitness.ui.recording.RecordingFragment
 import com.example.fitness.utils.MapPresenter
@@ -24,6 +27,7 @@ class RecordingActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mapView: MapView
     private lateinit var map: GoogleMap
     private val presenter: MapPresenter by lazy { MapPresenter(this) }
+    private lateinit var getActivityDAO: ActivityDAO
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +54,12 @@ class RecordingActivity : AppCompatActivity(), OnMapReadyCallback {
             }
         }
 
+        val db = Room.databaseBuilder(
+            applicationContext,
+            Database::class.java, "activity_table"
+        ).build()
+        getActivityDAO = db.getActivityDao()
+
         presenter.onViewCreated()
     }
 
@@ -74,8 +84,21 @@ class RecordingActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     private fun stopTracking() {
+        val timestamp = System.currentTimeMillis()
+        val avgSpeed = 10F// Tu będzie dodatkowa funkcja do sprawdzania predkosci - w mvp.kt
+        val distance = 1000 // ^^^
+        val time = binding.timer.base
+
+        val record = com.example.fitness.data.Activity(
+            timestamp = timestamp,
+            avgSpeedInKMH = avgSpeed,
+            distanceInMeters = distance,
+            timeInMillis = time
+        )
+        getActivityDAO.insertActivity(record)
         presenter.stopTracking()
         binding.timer.stop()
+
     }
 
     @SuppressLint("MissingPermission")

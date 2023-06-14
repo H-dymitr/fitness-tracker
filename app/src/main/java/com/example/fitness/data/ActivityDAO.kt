@@ -7,10 +7,10 @@ import androidx.room.*
 interface ActivityDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertActivity(activity: Activity)
+    fun insertActivity(activity: Activity)
 
     @Delete
-    suspend fun deleteActivity(activity: Activity)
+    fun deleteActivity(activity: Activity)
 
     @Query("SELECT * FROM activity_table ORDER BY timestamp DESC")
     fun getActivitySortedByDate(): LiveData<List<Activity>>
