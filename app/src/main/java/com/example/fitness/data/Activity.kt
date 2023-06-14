@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "activity_table")
 data class Activity(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
-    var image:Bitmap? = null,
+//    var image:Bitmap? = null,
     var timestamp:Long = 0L,
     var avgSpeedInKMH:Float = 0f,
     var distanceInMeters:Int = 0,

@@ -1,5 +1,6 @@
 package com.example.fitness.utils
 
+import LocationProvider
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
 import com.example.fitness.R

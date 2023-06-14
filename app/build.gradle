@@ -3,14 +3,14 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
     id 'androidx.navigation.safeargs.kotlin'
-//    apply plugin: 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-kapt'
 }
 
 android {
     namespace 'com.example.fitness'
     compileSdk 33
     dataBinding {
-        enabled=true
+        enabled = true
     }
 
     defaultConfig {
@@ -29,12 +29,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
     buildFeatures {
         viewBinding true
@@ -47,7 +48,16 @@ android {
             }
         }
     }
+
+    // Configure JVM toolchain
+    kotlin {
+        jvmToolchain {
+            // Specify the Java version for Kotlin compilation
+            targetCompatibility = JavaVersion.VERSION_17
+        }
+    }
 }
+
 dependencies {
 
     implementation "androidx.navigation:navigation-fragment-ktx:2.6.0"
@@ -65,11 +75,16 @@ dependencies {
     implementation 'androidx.room:room-ktx:2.5.1'
     implementation 'androidx.room:room-runtime:2.5.1'
     testImplementation 'junit:junit:4.13.2'
+    implementation "androidx.room:room-runtime:2.5.1"
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation 'com.google.android.gms:play-services-maps:18.1.0'
     implementation 'com.google.android.gms:play-services-location:17.1.0'
     implementation 'com.google.maps.android:android-maps-utils:2.2.3'
     implementation 'com.google.maps.android:maps-utils-ktx:3.2.0'
+    annotationProcessor "androidx.room:room-compiler:2.5.1"
+    kapt "androidx.room:room-compiler:2.5.1"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+
 
 }

@@ -50,7 +50,7 @@
             android:name=".RegistrationActivity"
             android:exported="true" />
         <activity
-            android:name=".RecordingActivity"
+            android:name=".ui.recording.RecordingActivity"
             />
     </application>
 

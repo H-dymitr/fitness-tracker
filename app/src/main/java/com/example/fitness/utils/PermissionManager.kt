@@ -1,5 +1,6 @@
 package com.example.fitness.utils
 
+import LocationProvider
 import android.Manifest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity

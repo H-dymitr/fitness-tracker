@@ -1,5 +1,6 @@
-package com.example.fitness
+package com.example.fitness.ui.recording
 
+import com.example.fitness.data.AppDatabase
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.SystemClock
@@ -7,11 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import androidx.room.Room
+import com.example.fitness.R
 import com.example.fitness.data.ActivityDAO
-import com.example.fitness.data.Database
 import com.example.fitness.databinding.RecordingActivityBinding
-import com.example.fitness.ui.recording.RecordingFragment
 import com.example.fitness.utils.MapPresenter
 import com.example.fitness.utils.Ui
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -20,6 +19,10 @@ import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.PolylineOptions
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class RecordingActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -54,10 +57,7 @@ class RecordingActivity : AppCompatActivity(), OnMapReadyCallback {
             }
         }
 
-        val db = Room.databaseBuilder(
-            applicationContext,
-            Database::class.java, "activity_table"
-        ).build()
+        val db = AppDatabase.getInstance(applicationContext)
         getActivityDAO = db.getActivityDao()
 
         presenter.onViewCreated()
@@ -72,7 +72,6 @@ class RecordingActivity : AppCompatActivity(), OnMapReadyCallback {
         presenter.onMapLoaded()
         map.uiSettings.isZoomControlsEnabled = true
     }
-
     private fun startTracking() {
         binding.speedVal.text = ""
         binding.distanceVal.text = ""
@@ -83,11 +82,12 @@ class RecordingActivity : AppCompatActivity(), OnMapReadyCallback {
         presenter.startTracking()
     }
 
+
     private fun stopTracking() {
         val timestamp = System.currentTimeMillis()
-        val avgSpeed = 10F// Tu będzie dodatkowa funkcja do sprawdzania predkosci - w mvp.kt
-        val distance = 1000 // ^^^
-        val time = binding.timer.base
+        val avgSpeed = 10F // Placeholder value, replace with actual calculation
+        val distance = 1000 // Placeholder value, replace with actual calculation
+        val time = SystemClock.elapsedRealtime() - binding.timer.base
 
         val record = com.example.fitness.data.Activity(
             timestamp = timestamp,
@@ -95,10 +95,16 @@ class RecordingActivity : AppCompatActivity(), OnMapReadyCallback {
             distanceInMeters = distance,
             timeInMillis = time
         )
-        getActivityDAO.insertActivity(record)
+
+        // Call insertActivity within a coroutine
+        CoroutineScope(Dispatchers.Main).launch {
+            withContext(Dispatchers.IO) {
+                getActivityDAO.insertActivity(record)
+            }
+        }
+
         presenter.stopTracking()
         binding.timer.stop()
-
     }
 
     @SuppressLint("MissingPermission")
