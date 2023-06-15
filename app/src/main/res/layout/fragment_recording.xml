@@ -3,23 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".ui.recording.RecordingActivity">
 
-    <FrameLayout
-        android:id="@+id/container"
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
-
-        <com.google.android.gms.maps.MapView
-            android:id="@+id/mapView"
-            android:layout_width="match_parent"
-            android:layout_height="375dp"
-            android:contentDescription="@string/google_maps_object" />
-
-    </FrameLayout>
+        android:layout_height="375dp"
+        android:contentDescription="@string/google_maps_object"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/stop_recording"
@@ -27,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="32dp"
-        android:text="START"
+        android:text="@string/start"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,21 +32,21 @@
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="262dp"
         android:text="@string/distance"
-        app:layout_constraintBottom_toBottomOf="@+id/container"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/time" />
 
     <TextView
         android:id="@+id/time"
+        android:textColor="@color/black"
         android:layout_width="200dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="340dp"
+        android:layout_marginTop="30dp"
         android:text="@string/activity_time"
-        app:layout_constraintBottom_toBottomOf="@+id/container"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapView" />
 
     <TextView
         android:id="@+id/speed"
@@ -61,9 +54,8 @@
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="184dp"
         android:text="@string/current_speed"
-        app:layout_constraintBottom_toBottomOf="@+id/container"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Distance" />
 
@@ -71,21 +63,23 @@
         android:id="@+id/timer"
         android:layout_width="120dp"
         android:layout_height="48dp"
-        android:fontFamily="monospace"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="340dp"
-        tools:text="45 minutes"
-        app:layout_constraintBottom_toBottomOf="@+id/container"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:fontFamily="monospace"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapView"
+        tools:text="45 minutes" />
 
     <TextView
         android:id="@+id/distance_val"
         android:layout_width="120dp"
         android:layout_height="48dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="262dp"
-        app:layout_constraintBottom_toBottomOf="@+id/container"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timer" />
 
     <TextView
         android:id="@+id/speed_val"
@@ -93,8 +87,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="184dp"
-        app:layout_constraintBottom_toBottomOf="@+id/container"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/distance_val" />
 

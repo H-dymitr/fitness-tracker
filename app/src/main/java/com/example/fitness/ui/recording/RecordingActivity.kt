@@ -1,16 +1,15 @@
 package com.example.fitness.ui.recording
 
-import com.example.fitness.data.AppDatabase
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.os.SystemClock
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
+import com.example.fitness.MainActivity
 import com.example.fitness.R
 import com.example.fitness.data.ActivityDAO
-import com.example.fitness.databinding.RecordingActivityBinding
+import com.example.fitness.data.AppDatabase
+import com.example.fitness.databinding.FragmentRecordingBinding
 import com.example.fitness.utils.MapPresenter
 import com.example.fitness.utils.Ui
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -26,7 +25,7 @@ import kotlinx.coroutines.withContext
 
 class RecordingActivity : AppCompatActivity(), OnMapReadyCallback {
 
-    private lateinit var binding: RecordingActivityBinding
+    private lateinit var binding: FragmentRecordingBinding
     private lateinit var mapView: MapView
     private lateinit var map: GoogleMap
     private val presenter: MapPresenter by lazy { MapPresenter(this) }
@@ -34,15 +33,10 @@ class RecordingActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = RecordingActivityBinding.inflate(layoutInflater)
+        binding = FragmentRecordingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val fragmentManager: FragmentManager = supportFragmentManager
-        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
-        val fragment: Fragment = RecordingFragment.newInstance("wartość1", "wartość2")
-        fragmentTransaction.replace(R.id.container, fragment)
-        fragmentTransaction.commit()
-
+        supportActionBar?.hide()
         mapView = binding.mapView
         mapView.onCreate(savedInstanceState)
         mapView.getMapAsync(this)
@@ -54,6 +48,8 @@ class RecordingActivity : AppCompatActivity(), OnMapReadyCallback {
             } else {
                 stopTracking()
                 binding.stopRecording.setText(R.string.start_label)
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
             }
         }
 

@@ -4,9 +4,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
 
-@Database(entities = [Activity::class], version = 2)
+@Database(entities = [Activity::class], version = 3)
+@TypeConverters(Convert::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun getActivityDao(): ActivityDAO
@@ -15,10 +17,6 @@ abstract class AppDatabase : RoomDatabase() {
 
         override fun onCreate(db: SupportSQLiteDatabase) {
             // Wykonaj odpowiednie działania podczas tworzenia bazy danych, jeśli to konieczne
-        }
-
-        fun onUpgrade(db: SupportSQLiteDatabase, oldVersion: Int, newVersion: Int) {
-            // Wykonaj odpowiednie działania podczas aktualizacji bazy danych, jeśli to konieczne
         }
     }
 

@@ -32,6 +32,6 @@
     <fragment
         android:id="@+id/recording"
         android:name="com.example.fitness.ui.recording.RecordingFragment"
-        android:label="fragment_recording2"
+        android:label="Recording"
         tools:layout="@layout/fragment_recording" />
 </navigation>

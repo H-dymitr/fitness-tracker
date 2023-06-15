@@ -13,10 +13,12 @@ class Convert {
     }
 
     @TypeConverter
-    fun fromBitmap(bmp: Bitmap): ByteArray {
-        val outputStream = ByteArrayOutputStream()
-        bmp.compress(Bitmap.CompressFormat.PNG, 10, outputStream)
-        return outputStream.toByteArray()
+    fun fromBitmap(bmp: Bitmap?): ByteArray {
+        if (bmp != null) {
+            val outputStream = ByteArrayOutputStream()
+            bmp.compress(Bitmap.CompressFormat.PNG, 10, outputStream)
+            return outputStream.toByteArray()
+        }
+        return byteArrayOf()
     }
-
 }
