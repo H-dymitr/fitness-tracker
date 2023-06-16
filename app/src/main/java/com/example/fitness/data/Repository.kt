@@ -1,5 +1,7 @@
 package com.example.fitness.data
 
+import android.graphics.Bitmap
+import androidx.lifecycle.LiveData
 import javax.inject.Inject
 
 class Repository @Inject constructor(private val ActivityDAO: ActivityDAO) {
@@ -8,18 +10,40 @@ class Repository @Inject constructor(private val ActivityDAO: ActivityDAO) {
 
     suspend fun deleteActivity(activity: Activity) = ActivityDAO.deleteActivity(activity)
 
-    fun getActivitySortedByDate() = ActivityDAO.getActivitySortedByDate()
+    fun getJoggingActivity(): LiveData<Activity> {
+        return ActivityDAO.getJoggingActivity()
+    }
 
-    fun getActivitySortedByDistance() = ActivityDAO.getActivitySortedByDistance()
+    fun getWalkingActivity(): LiveData<Activity> {
+        return ActivityDAO.getWalkingActivity()
+    }
 
-    fun getActivitySortedByTimeInMillis() = ActivityDAO.getActivitySortedByTimeInMillis()
+    fun getCyclingActivity(): LiveData<Activity> {
+        return ActivityDAO.getCyclingActivity()
+    }
 
-    fun getActivitySortedByAvgSpeed() = ActivityDAO.getActivitySortedByAvgSpeed()
+    fun getJoggingMap(): LiveData<Bitmap> {
+        return ActivityDAO.getJoggingMap()
+    }
 
-    fun getTotalAvgSpeed() = ActivityDAO.getTotalAvgSpeed()
+    fun getWalkingMap(): LiveData<Bitmap> {
+        return ActivityDAO.getWalkingMap()
+    }
 
-    fun getTotalDistance() = ActivityDAO.getTotalDistance()
+    fun getCyclingMap(): LiveData<Bitmap> {
+        return ActivityDAO.getCyclingMap()
+    }
 
-    fun getTotalTimeInMillis() = ActivityDAO.getTotalTimeInMillis()
+    fun getAvgSpeedForActivity(activityName: String): LiveData<Float> {
+        return ActivityDAO.getAvgSpeedForActivity(activityName)
+    }
+
+    fun getDistanceInMetersForActivity(activityName: String): LiveData<Double> {
+        return ActivityDAO.getDistanceInMetersForActivity(activityName)
+    }
+
+    fun getTimeInMillisForActivity(activityName: String): LiveData<Long> {
+        return ActivityDAO.getTimeInMillisForActivity(activityName)
+    }
 
 }

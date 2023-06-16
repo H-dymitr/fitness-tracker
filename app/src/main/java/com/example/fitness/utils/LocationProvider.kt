@@ -1,3 +1,5 @@
+package com.example.fitness.utils
+
 import android.annotation.SuppressLint
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +25,8 @@ class LocationProvider(private val activity: AppCompatActivity) {
 
     private val locations = LinkedList<LatLng>()
     private var distance = 0
+    private var startTime: Long = 0
+    private var endTime: Long = 0
 
     private val _liveLocations = MutableLiveData<List<LatLng>>()
     private val _liveDistance = MutableLiveData<Int>()
@@ -89,4 +93,17 @@ class LocationProvider(private val activity: AppCompatActivity) {
         locations.clear()
         distance = 0
     }
+
+    fun getTotalDistance(): Int {
+        return distance
+    }
+
+    fun getTotalTimeInMillis(): Long {
+        return if (startTime > 0 && endTime > 0) {
+            endTime - startTime
+        } else {
+            0
+        }
+    }
+
 }

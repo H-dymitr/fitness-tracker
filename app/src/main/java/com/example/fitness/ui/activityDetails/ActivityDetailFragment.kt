@@ -6,14 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.example.fitness.R
 import com.example.fitness.databinding.FragmentActivitydetailBinding
 
 class ActivityDetailFragment : Fragment() {
 
     private var _binding: FragmentActivitydetailBinding? = null
-
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -21,10 +19,8 @@ class ActivityDetailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val activityDetailViewModel =
-            ViewModelProvider(this)[ActivityDetailViewModel::class.java]
-
         _binding = FragmentActivitydetailBinding.inflate(inflater, container, false)
+
 
         return binding.root
     }
@@ -35,11 +31,12 @@ class ActivityDetailFragment : Fragment() {
         val activityName = arguments?.getString("activityName")
         val activityNameTextView = view.findViewById<TextView>(R.id.activityNameTextView)
         activityNameTextView.text = activityName
+
+
     }
-
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
 }

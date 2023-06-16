@@ -10,4 +10,5 @@ class ActivityDetailViewModel : ViewModel() {
         value = "Activity Name"
     }
     val activity: LiveData<String> = _activity
+
 }

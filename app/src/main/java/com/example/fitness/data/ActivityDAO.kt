@@ -1,5 +1,6 @@
 package com.example.fitness.data
 
+import android.graphics.Bitmap
 import androidx.lifecycle.LiveData
 import androidx.room.*
 
@@ -12,24 +13,30 @@ interface ActivityDAO {
     @Delete
     suspend fun deleteActivity(activity: Activity)
 
-    @Query("SELECT * FROM activity_table ORDER BY timestamp DESC")
-    fun getActivitySortedByDate(): LiveData<List<Activity>>
+    @Query("SELECT * FROM activity_table WHERE activityName = 'Jogging' ORDER BY timestamp DESC LIMIT 1")
+    fun getJoggingActivity(): LiveData<Activity>
 
-    @Query("SELECT * FROM activity_table ORDER BY timeInMillis DESC")
-    fun getActivitySortedByTimeInMillis(): LiveData<List<Activity>>
+    @Query("SELECT * FROM activity_table WHERE activityName = 'Walking' ORDER BY timestamp DESC LIMIT 1")
+    fun getWalkingActivity(): LiveData<Activity>
 
-    @Query("SELECT * FROM activity_table ORDER BY avgSpeedInKMH DESC")
-    fun getActivitySortedByAvgSpeed(): LiveData<List<Activity>>
+    @Query("SELECT * FROM activity_table WHERE activityName = 'Cycling' ORDER BY timestamp DESC LIMIT 1")
+    fun getCyclingActivity(): LiveData<Activity>
 
-    @Query("SELECT * FROM activity_table ORDER BY distanceInMeters DESC")
-    fun getActivitySortedByDistance(): LiveData<List<Activity>>
+    @Query("SELECT avgSpeedInKMH FROM activity_table WHERE activityName = :activityName ORDER BY timestamp DESC LIMIT 1")
+    fun getAvgSpeedForActivity(activityName: String): LiveData<Float>
 
-    @Query("SELECT SUM(timeInMillis) FROM activity_table")
-    fun getTotalTimeInMillis(): LiveData<Long>
+    @Query("SELECT distanceInMeters FROM activity_table WHERE activityName = :activityName ORDER BY timestamp DESC LIMIT 1")
+    fun getDistanceInMetersForActivity(activityName: String): LiveData<Double>
 
-    @Query("SELECT SUM(distanceInMeters) FROM activity_table")
-    fun getTotalDistance(): LiveData<Int>
+    @Query("SELECT image FROM activity_table WHERE activityName = 'Jogging' ORDER BY timestamp DESC LIMIT 1")
+    fun getJoggingMap(): LiveData<Bitmap>
 
-    @Query("SELECT AVG(avgSpeedInKMH) FROM activity_table")
-    fun getTotalAvgSpeed(): LiveData<Float>
+    @Query("SELECT image FROM activity_table WHERE activityName = 'Walking' ORDER BY timestamp DESC LIMIT 1")
+    fun getWalkingMap(): LiveData<Bitmap>
+
+    @Query("SELECT image FROM activity_table WHERE activityName = 'Cycling' ORDER BY timestamp DESC LIMIT 1")
+    fun getCyclingMap(): LiveData<Bitmap>
+
+    @Query("SELECT timeInMillis FROM activity_table WHERE activityName = :activityName ORDER BY timestamp DESC LIMIT 1")
+    fun getTimeInMillisForActivity(activityName: String): LiveData<Long>
 }

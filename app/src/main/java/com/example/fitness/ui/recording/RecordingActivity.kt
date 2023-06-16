@@ -11,6 +11,7 @@ import com.example.fitness.data.ActivityDAO
 import com.example.fitness.data.AppDatabase
 import com.example.fitness.databinding.FragmentRecordingBinding
 import com.example.fitness.utils.MapPresenter
+import com.example.fitness.utils.SpeedCalculator
 import com.example.fitness.utils.Ui
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -30,6 +31,7 @@ class RecordingActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var map: GoogleMap
     private val presenter: MapPresenter by lazy { MapPresenter(this) }
     private lateinit var getActivityDAO: ActivityDAO
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,14 +83,16 @@ class RecordingActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private fun stopTracking() {
         val timestamp = System.currentTimeMillis()
-        val avgSpeed = 10F // Placeholder value, replace with actual calculation
+//        val avgSpeed = 10F // Placeholder value, replace with actual calculation
         val distance = 1000 // Placeholder value, replace with actual calculation
         val time = SystemClock.elapsedRealtime() - binding.timer.base
+
+        val avgSpeed = SpeedCalculator.calculateAverageSpeed(distance.toFloat(), time)
 
         val record = com.example.fitness.data.Activity(
             timestamp = timestamp,
             avgSpeedInKMH = avgSpeed,
-            distanceInMeters = distance,
+            distanceInMeters = distance.toDouble(),
             timeInMillis = time
         )
 
@@ -110,8 +114,13 @@ class RecordingActivity : AppCompatActivity(), OnMapReadyCallback {
             map.uiSettings.isZoomControlsEnabled = true
             map.animateCamera(CameraUpdateFactory.newLatLngZoom(ui.currentLocation, 14f))
         }
+
         binding.distanceVal.text = ui.formattedDistance
         binding.speedVal.text = ui.formattedPace
+        presenter.liveSpeed.observe(this) { speed ->
+            binding.speedVal.text = speed.toString()
+        }
+
         drawRoute(ui.userPath)
     }
 

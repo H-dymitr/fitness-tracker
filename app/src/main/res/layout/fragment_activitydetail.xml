@@ -94,4 +94,41 @@
         app:layout_constraintStart_toStartOf="@+id/detailRectangle"
         app:layout_constraintTop_toBottomOf="@+id/route_lenght_details" />
 
+    <TextView
+        android:id="@+id/activity_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="16dp"
+        android:text=""
+        android:textColor="@color/lighter_blue"
+        android:textSize="24sp"
+
+        app:layout_constraintEnd_toEndOf="@+id/detailRectangle"
+        app:layout_constraintTop_toBottomOf="@+id/activityNameTextView" />
+
+    <TextView
+        android:id="@+id/route_lenght"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
+        android:text=""
+        android:textColor="@color/lighter_blue"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/detailRectangle"
+        app:layout_constraintTop_toBottomOf="@+id/activity_time" />
+
+    <TextView
+        android:id="@+id/avgSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:text=""
+        android:textColor="@color/lighter_blue"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/detailRectangle"
+        app:layout_constraintTop_toBottomOf="@+id/route_lenght" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
